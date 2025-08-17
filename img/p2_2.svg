@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      .bg { fill: #f7fafc; }
+      .ink { fill: none; stroke: #0f3557; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+      .fill1 { fill: #1e5fa3; }
+      .fill2 { fill: #f0b429; }
+      .panel { fill: white; stroke: rgba(15,53,87,.15); stroke-width: 2; }
+      .txt { fill: #0f3557; font: 600 28px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="900" height="600" rx="24" ry="24"/>
+  <g transform="translate(40,40)">
+    <rect class="panel" x="0" y="0" width="820" height="460" rx="24" ry="24"/>
+    <g transform="translate(0,0)">
+      
+    <g transform="translate(70,40)">
+      <path class="fill1" d="M110,30 C150,30 170,60 170,100 L170,200 L50,200 L50,100 C50,60 70,30 110,30 Z" opacity="0.15"/>
+      <path class="ink" d="M110,30 C150,30 170,60 170,100 L170,200 L50,200 L50,100 C50,60 70,30 110,30 Z"/>
+      <path class="ink" d="M85,70 C110,90 110,140 110,200 M135,70 C110,90 110,140 110,200"/>
+    </g>
+    
+    </g>
+  </g>
+  <text class="txt" x="450.0" y="564" text-anchor="middle">Hoodie Urban</text>
+</svg>

@@ -1,12 +1,72 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <title>Colegio Albania</title>
-  <meta http-equiv="refresh" content="0; url=catalogo_coalba.html">
-  <link rel="canonical" href="catalogo_coalba.html">
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>MiTienda · Catálogo</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <script defer src="js/data.js"></script>
+  <script defer src="js/common.js"></script>
+  <script defer src="js/app.js"></script>
 </head>
 <body>
-  <p>Redirigiendo a <a href="catalogo_coalba.html">catalogo_coalba.html</a>…</p>
+  
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html">
+      <img src="img/logo.svg" alt="logo"/>
+      <strong>MiTienda</strong>
+    </a>
+    <nav class="navlinks">
+      <a href="catalogo.html" style="background:rgba(30,95,163,.10)">Catálogo</a>
+      <a href="carrito.html">Carrito <span id="cartCount" class="badge">0</span></a>
+      <a id="loginLink" href="login.html">Iniciar sesión</a>
+    </nav>
+  </div>
+</header>
+
+  <section class="hero">
+    <div class="container">
+      <div>
+        <h1>Tu nueva tienda modular</h1>
+        <p>Catálogo, detalle, carrito, login y contacto — cada página en su archivo, con datos compartidos y carrito en localStorage.</p>
+        <div class="cta">
+          <a class="btn" href="catalogo.html">Ver catálogo</a>
+          <a class="btn secondary" href="carrito.html">Ir al carrito</a>
+        </div>
+      </div>
+      <div>
+        <img src="img/general.png" alt="Hero" style="border-radius:14px;border:1px solid rgba(15,53,87,.10)"/>
+      </div>
+    </div>
+  </section>
+  <main class="container">
+    <h2 id="catalogo" style="margin:20px 0 10px;color:var(--primary)">Catálogo</h2>
+    <div id="grid" class="grid"></div>
+  </main>
+  
+<footer>
+  <div class="footer-grid container">
+    <div>
+      <h3 style="color:var(--primary)">Contáctanos</h3>
+      <form id="contactFooterForm">
+        <div style="display:grid;gap:10px;grid-template-columns:1fr 1fr">
+          <input class="input" name="nombre" placeholder="Nombre" required />
+          <input class="input" name="email" type="email" placeholder="Email" required />
+        </div>
+        <textarea class="input" name="mensaje" placeholder="¿Cómo podemos ayudarte?" rows="3" style="margin-top:10px" required></textarea>
+        <div style="display:flex;justify-content:flex-end;margin-top:10px">
+          <button class="btn" type="submit">Enviar</button>
+        </div>
+        <p id="contactFooterMsg" class="small"></p>
+      </form>
+    </div>
+    <div class="small">
+      <p>© 2025 MiTienda.</p>
+      <p><a href="contacto.html" style="color:var(--primary-2)">Ir a la página de contacto</a></p>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      .bg { fill: #f7fafc; }
+      .ink { fill: none; stroke: #0f3557; stroke-width: 8; stroke-linecap: round; stroke-linejoin: round; }
+      .fill1 { fill: #1e5fa3; }
+      .fill2 { fill: #f0b429; }
+      .panel { fill: white; stroke: rgba(15,53,87,.15); stroke-width: 2; }
+      .txt { fill: #0f3557; font: 600 28px system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; }
+    </style>
+  </defs>
+  <rect class="bg" x="0" y="0" width="900" height="600" rx="24" ry="24"/>
+  <g transform="translate(40,40)">
+    <rect class="panel" x="0" y="0" width="820" height="460" rx="24" ry="24"/>
+    <g transform="translate(0,0)">
+      
+    <g transform="translate(60,70)">
+      <path class="fill1" d="M40,120 C80,80 140,80 180,95 L190,140 L40,140 Z" opacity="0.15"/>
+      <path class="ink" d="M40,120 C80,80 140,80 180,95 L190,140 L40,140 Z"/>
+      <path class="ink" d="M70,120 L120,120 M85,110 L135,110"/>
+      <circle class="fill2" cx="170" cy="120" r="8"/>
+    </g>
+    
+    </g>
+  </g>
+  <text class="txt" x="450.0" y="564" text-anchor="middle">Tenis Runner</text>
+</svg>

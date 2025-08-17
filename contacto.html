@@ -3,11 +3,9 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>MiTienda · Detalle de producto</title>
+  <title>MiTienda · Contacto</title>
   <link rel="stylesheet" href="css/styles.css"/>
-  <script defer src="js/data.js"></script>
   <script defer src="js/common.js"></script>
-  <script defer src="js/detail.js"></script>
 </head>
 <body>
   
@@ -26,7 +24,18 @@
 </header>
 
   <main class="container">
-    <div id="detail" class="detail"></div>
+    <h2 style="color:var(--primary)">Contacto</h2>
+    <p class="small">También tienes un formulario compacto en el pie de todas las páginas.</p>
+    <form id="contactForm" style="max-width:640px;display:grid;gap:10px">
+      <div style="display:grid;gap:10px;grid-template-columns:1fr 1fr">
+        <input class="input" name="nombre" placeholder="Nombre" required/>
+        <input class="input" name="email" type="email" placeholder="Email" required/>
+      </div>
+      <input class="input" name="asunto" placeholder="Asunto" required/>
+      <textarea class="input" name="mensaje" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+      <button class="btn" type="submit">Enviar</button>
+      <p id="contactMsg" class="small"></p>
+    </form>
   </main>
   
 <footer>

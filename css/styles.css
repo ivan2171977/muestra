@@ -1,0 +1,160 @@
+:root{
+  /* Brand-inspired light palette (Colegio Albania vibe) */
+  --bg:#f7fafc;            /* light background */
+  --panel:#ffffff;         /* panels / headers */
+  --card:#ffffff;          /* cards */
+  --muted:#64748b;         /* slate-500 */
+  --text:#0f172a;          /* slate-900 */
+  --primary:#0f3557;       /* deep navy */
+  --primary-2:#1e5fa3;     /* medium blue */
+  --accent:#f0b429;        /* warm gold */
+  --danger:#e11d48;        /* rose-600 */
+  --warning:#f59e0b;       /* amber-500 */
+  --shadow: 0 8px 22px rgba(15, 17, 26, .08);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial}
+
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+.container{max-width:1100px;margin:0 auto;padding:24px}
+
+header{
+  position:sticky;top:0;z-index:50;
+  background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.92));
+  border-bottom:1px solid rgba(15,53,87,.10);
+  backdrop-filter:blur(8px);
+}
+
+.nav{
+  display:flex;align-items:center;gap:16px;justify-content:space-between;
+  padding:12px 24px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{height:32px;width:auto}
+.brand strong{letter-spacing:.5px;color:var(--primary)}
+
+.navlinks{display:flex;gap:10px;align-items:center}
+.navlinks a{
+  padding:8px 12px;border-radius:10px;background:transparent;color:var(--primary);
+  transition:all .2s ease;
+}
+.navlinks a:hover{background:rgba(30,95,163,.10)}
+.badge{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:20px;height:20px;border-radius:999px;
+  background:var(--accent);color:#3b2600;font-weight:700;font-size:12px;padding:0 6px;margin-left:6px;
+}
+
+.hero{
+  background:
+    radial-gradient(1200px 300px at 50% -50%, rgba(30,95,163,.18), transparent),
+    radial-gradient(1200px 300px at 80% -60%, rgba(240,180,41,.16), transparent);
+  border-bottom:1px solid rgba(15,53,87,.10);
+}
+.hero .container{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center}
+.hero h1{margin:0;font-size:40px;line-height:1.1;color:var(--primary)}
+.hero p{margin-top:10px;color:var(--muted)}
+.hero .cta{margin-top:18px;display:flex;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--primary-2);color:white;border:0;border-radius:12px;padding:10px 14px;
+  font-weight:700;box-shadow:var(--shadow);cursor:pointer;transition:transform .12s ease, opacity .2s;
+}
+.btn.secondary{background:transparent;border:1px solid rgba(15,53,87,.18);color:var(--primary)}
+.btn:hover{transform:translateY(-1px);opacity:.95}
+
+.grid{
+  display:grid;gap:18px;
+  grid-template-columns:repeat(1,minmax(0,1fr));
+}
+@media(min-width:640px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(min-width:960px){.grid{grid-template-columns:repeat(3,minmax(0,1fr));}}
+
+.card{
+  background:var(--card);
+  border:1px solid rgba(15,53,87,.10);
+  border-radius:16px;overflow:hidden;
+  box-shadow:var(--shadow);
+  display:flex;flex-direction:column;
+}
+.card .media{
+  aspect-ratio:4/3;
+  overflow:hidden;
+  background:#edf2f7;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.card .media img{
+  width:100%;
+  height:100%;
+  object-fit:contain;   /* centrado y ajustado */
+  object-position:center;
+  transition:transform .4s ease;
+}
+.card:hover .media img{transform:scale(1.03)}
+.card .body{padding:14px 16px 16px}
+.card h3{margin:0;font-size:18px;color:var(--primary)}
+.price{color:#0b7a3e;font-weight:700;margin-top:6px}
+.card .actions{margin-top:12px;display:flex;gap:8px}
+
+.input, select, textarea{
+  width:100%;padding:10px 12px;border-radius:12px;background:#ffffff;border:1px solid rgba(15,53,87,.15);color:var(--text);
+}
+.input[type=number]{-moz-appearance:textfield}
+.input::-webkit-outer-spin-button,.input::-webkit-inner-spin-button{ -webkit-appearance:none; margin:0; }
+.input:focus, select:focus, textarea:focus{outline:2px solid rgba(30,95,163,.2)}
+
+.detail{
+  display:grid;gap:24px;grid-template-columns:1fr;
+}
+@media(min-width:900px){.detail{grid-template-columns:1.1fr .9fr;}}
+.gallery{display:grid;gap:12px}
+.gallery .main{
+  aspect-ratio:4/3;background:#edf2f7;border-radius:14px;
+  overflow:hidden;border:1px solid rgba(15,53,87,.10);
+  display:flex;align-items:center;justify-content:center;
+}
+.gallery .main img{
+  width:100%;height:100%;
+  object-fit:contain;
+  object-position:center;
+}
+.thumbs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.thumbs img{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px;border:1px solid rgba(15,53,87,.12);cursor:pointer;transition:opacity .2s}
+.thumbs img:hover{opacity:.85}
+
+.sizes{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.sizechip{
+  padding:8px 12px;border-radius:999px;border:1px solid rgba(15,53,87,.22);
+  cursor:pointer;user-select:none;transition:background .2s, border .2s;
+}
+.sizechip.active{background:rgba(240,180,41,.20);border-color:var(--accent)}
+
+.qtyrow{display:flex;gap:10px;align-items:center;margin-top:10px}
+.qtyrow .input{max-width:110px}
+
+.table{width:100%;border-collapse:collapse;background:var(--card);border-radius:12px;overflow:hidden}
+.table th,.table td{padding:12px;border-bottom:1px solid rgba(15,53,87,.10);text-align:left}
+.table th{color:var(--muted);font-weight:600}
+.table .right{text-align:right}
+
+footer{
+  margin-top:32px;border-top:1px solid rgba(15,53,87,.10);
+  background:linear-gradient(0deg, rgba(255,255,255,.96), rgba(255,255,255,.92));
+}
+.footer-grid{display:grid;gap:16px;padding:20px 24px}
+@media(min-width:800px){.footer-grid{grid-template-columns:1fr 1fr;}}
+.small{color:var(--muted);font-size:12px}
+.success{color:#0b7a3e}
+.error{color:#b91c1c}
+
+/* --- Sticky footer to keep contact block at the bottom --- */
+html, body { height: 100%; }
+body { min-height: 100vh; display: flex; flex-direction: column; }
+main { flex: 1; }
+footer { margin-top: auto; }
+/* --- end sticky footer --- */

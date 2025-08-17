@@ -3,11 +3,10 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>MiTienda · Detalle de producto</title>
+  <title>MiTienda · Iniciar sesión</title>
   <link rel="stylesheet" href="css/styles.css"/>
-  <script defer src="js/data.js"></script>
   <script defer src="js/common.js"></script>
-  <script defer src="js/detail.js"></script>
+  <script defer src="js/auth.js"></script>
 </head>
 <body>
   
@@ -26,7 +25,14 @@
 </header>
 
   <main class="container">
-    <div id="detail" class="detail"></div>
+    <h2 style="color:var(--primary)">Iniciar sesión</h2>
+    <form id="loginForm" style="max-width:420px;display:grid;gap:10px">
+      <input class="input" name="email" type="email" placeholder="Email" required/>
+      <input class="input" name="password" type="password" placeholder="Contraseña" required/>
+      <button class="btn" type="submit">Entrar</button>
+      <p class="small">Sugerencia: este login es demostrativo y guarda sesión en tu navegador.</p>
+      <p id="loginMsg" class="small"></p>
+    </form>
   </main>
   
 <footer>
