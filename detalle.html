@@ -3,54 +3,75 @@
 <head>
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>MiTienda · Detalle de producto</title>
+  <title>MiTienda · Detalle</title>
   <link rel="stylesheet" href="css/styles.css"/>
   <script defer src="js/data.js"></script>
   <script defer src="js/common.js"></script>
-  <script defer src="js/detail.js"></script>
+  <script>
+    function renderDetail(){
+      const params = new URLSearchParams(location.search);
+      const id = Number(params.get('id'));
+      const intent = params.get('intent') || 'add';   // 'add' | 'pay'
+      const next = params.get('next') || 'stay';      // 'stay' | 'carrito'
+      const p = getProductById(id);
+      if(!p){ document.getElementById('detail').innerHTML = '<p>No encontrado.</p>'; return; }
+      const main = p.imagenes[0]; const thumbs = p.imagenes;
+      document.getElementById('detail').innerHTML = `
+        <div class="gallery">
+          <div class="main"><img id="mainImg" src="${main}" alt="${p.nombre}"></div>
+          <div class="thumbs">
+            ${thumbs.map(src=>`<img src="${src}" alt="${p.nombre}">`).join('')}
+          </div>
+        </div>
+        <div>
+          <h2>${p.nombre}</h2>
+          <div class="small" style="color:var(--muted)">${p.categoria} · ${p.genero}</div>
+          <div class="price" style="margin-top:8px">${fmtCOP(p.precio)}</div>
+          <div class="sizes">
+            ${p.tallas.map((t,i)=>`<div class="sizechip ${i===0?'active':''}" data-size="${t}">${t}</div>`).join('')}
+          </div>
+          <div class="qtyrow">
+            <input id="qty" class="input" type="number" min="1" value="1" />
+            <button id="addBtn" class="btn">${intent==='pay' ? 'Añadir y pagar' : 'Añadir al carrito'}</button>
+          </div>
+        </div>
+      `;
+      document.querySelectorAll('.sizechip').forEach(ch=>{
+        ch.addEventListener('click', ()=>{
+          document.querySelectorAll('.sizechip').forEach(c=>c.classList.remove('active'));
+          ch.classList.add('active');
+        });
+      });
+      document.querySelectorAll('.thumbs img').forEach(img=>{
+        img.addEventListener('click', ()=>{ document.getElementById('mainImg').src = img.src; });
+      });
+      document.getElementById('addBtn').addEventListener('click', ()=>{
+        const size = document.querySelector('.sizechip.active')?.dataset.size || p.tallas[0];
+        const qty  = Math.max(1, Number(document.getElementById('qty').value || 1));
+        const items = readCart();
+        const existing = items.find(i=>i.id===p.id && i.size===size);
+        if(existing){ existing.qty += qty; } else { items.push({id:p.id, size, qty}); }
+        writeCart(items); updateCartBadge();
+        if(next === 'carrito'){ window.location.href = 'carrito.html'; }
+        else { alert('Producto añadido. Puedes seguir comprando o ir al carrito.'); }
+      });
+    }
+    document.addEventListener('DOMContentLoaded', renderDetail);
+  </script>
 </head>
 <body>
-  
-<header>
-  <div class="nav">
-    <a class="brand" href="index.html">
-      <img src="img/logo.svg" alt="logo"/>
-      <strong>MiTienda</strong>
-    </a>
-    <nav class="navlinks">
-      <a href="catalogo.html" >Catálogo</a>
-      <a href="carrito.html">Carrito <span id="cartCount" class="badge">0</span></a>
-      <a id="loginLink" href="login.html">Iniciar sesión</a>
-    </nav>
-  </div>
-</header>
-
-  <main class="container">
-    <div id="detail" class="detail"></div>
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html"><img src="img/logo.svg" alt="logo"/><strong>MiTienda</strong></a>
+      <nav class="navlinks">
+        <a href="catalogo.html">Catálogo</a>
+        <a href="carrito.html">Carrito <span id="cartCount" class="badge">0</span></a>
+        <a id="loginLink" href="login.html">Iniciar sesión</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container detail">
+    <div id="detail"></div>
   </main>
-  
-<footer>
-  <div class="footer-grid container">
-    <div>
-      <h3 style="color:var(--primary)">Contáctanos</h3>
-      <form id="contactFooterForm">
-        <div style="display:grid;gap:10px;grid-template-columns:1fr 1fr">
-          <input class="input" name="nombre" placeholder="Nombre" required />
-          <input class="input" name="email" type="email" placeholder="Email" required />
-        </div>
-        <textarea class="input" name="mensaje" placeholder="¿Cómo podemos ayudarte?" rows="3" style="margin-top:10px" required></textarea>
-        <div style="display:flex;justify-content:flex-end;margin-top:10px">
-          <button class="btn" type="submit">Enviar</button>
-        </div>
-        <p id="contactFooterMsg" class="small"></p>
-      </form>
-    </div>
-    <div class="small">
-      <p>© 2025 MiTienda.</p>
-      <p><a href="contacto.html" style="color:var(--primary-2)">Ir a la página de contacto</a></p>
-    </div>
-  </div>
-</footer>
-
 </body>
 </html>

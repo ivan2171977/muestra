@@ -1,0 +1,63 @@
+Cliente
+    Cuenta del cliente
+    Perfil (nombre, email, teléfono, direcciones de envío)
+        Cambio de contraseña (con verificación por email)
+    Historial de actividad (pedidos, reservas)
+    Carrito y checkout (envío, pago, confirmación)
+    Estado del pedido 
+    Descarga de factura/recibo
+    Devoluciones y garantías (Fase 2)
+    Crear reserva (talla/cantidad, fecha límite)
+    Notificaciones (email/WhatsApp) de estado
+
+Vendedor
+    Cuenta del vendedor
+    Perfil y preferencias (notificaciones)
+    Registrar item nuevo (nombre, descripción, categoría, variantes/tallas, imágenes, precio, impuestos)
+    Editar item existente
+    Aumentar/ajustar stock (entrada, baja, corrección)
+    Ver pedidos (filtros por estado/fecha/cliente)
+    Cambiar estado (preparado, enviado, cancelado)
+    Ver reservas (filtros, vencimientos)
+    Convertir reserva en pedido
+    Cancelar/expirar reservas
+    Ingresos y egresos (por período, categoría, canal)
+    Pedidos vs reservas (tasa de conversión)
+Proveedores
+    Alta de proveedor (datos, condiciones, lead time)
+    Lista de productos por proveedor
+    Reabastecimiento
+    Lead time por proveedor/producto
+    Órdenes de compra (OC): crear, registrar
+    Recepción de mercadería
+    Control de stock
+    Alertas por stock mínimo (tablero + email/WhatsApp)
+
+Admin
+    Gestión de usuarios (alta/baja, reset de contraseña, bloqueo)
+    Todo lo del vendedor
+    Con privilegios para ver/editar todo
+    Reportes
+
+
+Flujos críticos
+
+    Checkout: carrito → dirección → envío → pago → confirmación → baja de stock.
+    Reserva: ficha de producto → seleccionar talla/cantidad → crear reserva (hold de stock o promesa) → vencimiento → conversión a pedido o expiración.
+    Reabastecimiento: alerta stock mínimo → generar OC → envío a proveedor → recepción (ajusta stock y costo) → cierre OC.
+    Devoluciónes: solicitud → aprobación → recepción → reintegro/nota crédito → ajuste de stock.
+    Seguridad y cumplimiento 
+    Autenticación segura + recuperación de contraseña
+    Control de acceso por rol (RBAC)
+    Auditoría: quién cambia stock, precios, estados
+    Validaciones de cantidades/estados
+    Respaldo/Exportación de datos
+    Navegación sugerida
+
+Roles
+    Cliente: Inicio, Catálogo, Mi Cuenta, Mis Pedidos, Mis Reservas, Carrito, Ayuda.
+    Vendedor: Panel, Pedidos, Reservas, Catálogo (Items), Inventario (Movimientos/Alertas), Proveedores/OC.
+    Admin: Panel, Usuarios/Roles, Todo Inventario, Todo Ventas, Reportes, Configuración (impuestos, envío, plantillas).
+
+
+archivo con informacion
